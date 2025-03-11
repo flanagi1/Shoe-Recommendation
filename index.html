@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Page</title>
+  <link rel="icon" href="Screenshot_23-2-2025_17455_www.bing.com.jpeg" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+</head>
+<body>
+<div class="content">
+  <!-- Welcome message -->
+  <h1 id="welcome" class="fade-in">Hello!</h1>
+
+  <!-- Server message -->
+  <h1 id="server" class="server-message">Welcome to Shoe Recommendations</h1>
+  <hr id="line" class="fade-in-line">
+  <p id="intro" class="fade-in-intro element">Created by <a href="about.html">Ian Flanagan</a>, Shoe Recommendations is born from my lifelong passion for shoes. 
+    As someone who’s always been fascinated by the variety of styles and the impact the right pair can have, 
+    I understand how important it is to have shoes that fit both your lifestyle and needs. Whether you’re running, working, or just relaxing, the right shoes can make all the difference.
+    At Shoe Recommendations, we aim to match you with the perfect pair by considering your preferences and unique requirements. 
+    I believe that everyone deserves shoes that are comfortable, functional, and stylish – no matter the occasion. Let’s find the perfect fit for you!</p>
+  
+  <script>
+    // JavaScript to handle the fading out of the welcome message after it fades in
+    setTimeout(function() {
+      document.getElementById("welcome").classList.add("fade-out");
+      document.getElementById("server").classList.add("fade-in");
+    }, 2000); // Wait 2 seconds before fading out the welcome message
+
+    setTimeout(function() {
+      document.getElementById("server").classList.add("fade-in-visible");  // Ensure the server message stays visible
+    }, 3000);
+    // JavaScript to handle the glide effect and movement of the server message
+    setTimeout(function() {
+      document.getElementById("line").classList.add("fade-in-line-visible");
+    }, 7000); // Delay of 7 seconds
+
+    setTimeout(function() {
+      document.getElementById("intro").classList.add("fade-in-intro-visible");
+    }, 7000); 
+
+    function redirectToPage(){
+      window.location.href = "questions.html";
+    }
+  </script>
+
+  <button onclick="redirectToPage()">Go find your shoe!</button>
+</div>
+</body>
+</html>
