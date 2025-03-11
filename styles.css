@@ -1,0 +1,176 @@
+/* General body styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Ensure the text is centered */
+}
+
+h1, h2 {
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0; /* Initially hidden */
+  animation: fadeInButton 8s forwards; /* Animation to fade in the button */
+  animation-delay: 1s; /* Delay button appearance until all text has appeared */
+  margin-top: 30px; /* Push it below the text */
+  width: 80%; /* Make the button responsive */
+  max-width: 300px; /* Set max width for the button */
+}
+
+/* Hover effect for button */
+button:hover {
+  background-color: #45a049;
+}
+
+@keyframes fadeInButton {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Animation for fading in the welcome message */
+.fade-in-line,
+.fade-in {
+  animation: fadeIn 3s forwards;
+}
+
+/* Animation for fading out the welcome message */
+.fade-out {
+  animation: fadeOut 2s forwards;
+}
+
+/* Keyframes for fading in and out */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Server message stays visible after fading in */
+.server-message {
+  opacity: 0;
+  animation: fadeInServer 3s 3s forwards; /* Delay of 3 seconds for fading in */
+}
+
+@keyframes fadeInServer {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.glide-up {
+  animation: glideUp 2s forwards;
+}
+
+@keyframes glideUp {
+  0% {
+    transform: translateY(0); /* Start from the original position */
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-30px); /* Move up by 30px (you can adjust as needed) */
+    opacity: 1;
+  }
+}
+
+/* Animation for fading in the intro */
+.fade-in-intro {
+  opacity: 0;
+  animation: fadeIn 1.5s forwards;
+  animation-delay: 8s; /* Delay the fade-in to appear after the server message */
+}
+
+@keyframes fadeInIntro {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in-intro-visible {
+  animation: fadeInIntro 3s 0s forwards;
+}
+
+.element {
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5em; /* Make text smaller on smaller screens */
+  }
+
+  button {
+    padding: 8px 16px; /* Adjust button size */
+    font-size: 14px;
+    width: 90%; /* Make the button wider on smaller screens */
+  }
+}
+
+hr{
+  border: none; /* Remove default border */
+  height: 2px; /* Set the height (thickness) */
+  background-color: #4CAF50; /* Color of the line */
+  margin: 20px 0;
+  width: 80%;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.fade-in-line-visible{
+  animation: fadeInLine 3s forwards;
+  animation-delay: 7s;
+}
