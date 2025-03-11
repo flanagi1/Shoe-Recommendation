@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Example with LocalStorage</title>
+</head>
+<body>
+  <h1>Select Your Preferences</h1>
+
+  <form id="preferencesForm">
+    <label for="shoeType">What type of shoes are you looking for?</label>
+    <select id="shoeType" name="shoeType" required>
+      <option value="">--Please choose an option--</option>
+      <option value="sneakers">Sneakers</option>
+      <option value="boots">Boots</option>
+      <option value="sandals">Sandals</option>
+    </select>
+    <br><br>
+
+    <label for="shoeColor">Preferred Color:</label>
+    <input type="radio" id="red" name="shoeColor" value="red"> Red
+    <input type="radio" id="blue" name="shoeColor" value="blue"> Blue
+    <input type="radio" id="black" name="shoeColor" value="black"> Black
+    <br><br>
+
+    <label for="size">Shoe Size:</label>
+    <input type="number" id="size" name="size" min="5" max="15" required>
+    <br><br>
+
+    <button type="submit">Submit Preferences</button>
+  </form>
+
+  <h2>Your Saved Preferences</h2>
+  <p id="savedPreferences">No saved preferences found.</p>
+
+  <script>
+    // Check if preferences exist in localStorage when the page loads
+    window.onload = function() {
+      const savedShoeType = localStorage.getItem('shoeType');
+      const savedShoeColor = localStorage.getItem('shoeColor');
+      const savedSize = localStorage.getItem('size');
+
+      if (savedShoeType && savedShoeColor && savedSize) {
+        document.getElementById('savedPreferences').innerText = 
+          `Shoe Type: ${savedShoeType}, Color: ${savedShoeColor}, Size: ${savedSize}`;
+      }
+    };
+
+    // Listen for form submission
+    document.getElementById('preferencesForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form from submitting the traditional way
+
+      // Get the selected values from the form
+      const shoeType = document.getElementById('shoeType').value;
+      const shoeColor = document.querySelector('input[name="shoeColor"]:checked')?.value;
+      const size = document.getElementById('size').value;
+
+      // Check if all required fields are filled out
+      if (!shoeType || !shoeColor || !size) {
+        alert("Please fill out all the fields before submitting.");
+        return; // Stop form submission if not all fields are filled
+      }
+
+      // Save the selected values to localStorage
+      localStorage.setItem('shoeType', shoeType);
+      localStorage.setItem('shoeColor', shoeColor);
+      localStorage.setItem('size', size);
+
+      // Display saved preferences
+      document.getElementById('savedPreferences').innerText = 
+        `Shoe Type: ${shoeType}, Color: ${shoeColor}, Size: ${size}`;
+    });
+  </script>
+</body>
+</html>
